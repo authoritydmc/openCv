@@ -17,6 +17,7 @@ def read_webcam():
         # print("Converted to NP array")
         img = cv2.imdecode(imgNp, -1)
         # print("Decoded using imdecode")
+        cv2.resize(img,(600,400)) #resize the image
         return img
         # return the image
     except Exception as e:
