@@ -5,6 +5,7 @@ wid=int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 height=int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 eye_cascade=cv2.CascadeClassifier('/home/beast/python_Codes/openCV/haarcascades/haarcascade_eye.xml')
 face_cascade=cv2.CascadeClassifier('/home/beast/python_Codes/openCV/haarcascades/haarcascade_frontalface_default.xml')
+writer=cv2.VideoWriter('detect_face_eye.mp4',cv2.VideoWriter_fourcc(*'XVID'),20,(wid,height))
 
 def detect_eye(img):
     raw_img=img.copy()
@@ -32,5 +33,7 @@ while True:
     detect_face(fr)
     cv2.putText(fr,f"{datetime.datetime.now().strftime('%H:%M:%S')} {datetime.date.today()}",( 20,height-20),ff,1,(255,255,255))
     cv2.imshow("Detect Face and Eye",fr)
+    writer.write(fr)
 cv2.destroyAllWindows()
 cap.release()
+writer.release()
