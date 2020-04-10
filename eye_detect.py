@@ -7,7 +7,7 @@ eye_cascade=cv2.CascadeClassifier('/home/beast/python_Codes/openCV/haarcascades/
 def detect_eye(img):
     raw_img=img.copy()
     raw_img=cv2.cvtColor(raw_img,cv2.COLOR_BGR2GRAY)
-    eye_rects=eye_cascade.detectMultiScale(raw_img,scaleFactor=1.2,minNeighbors=5)
+    eye_rects=eye_cascade.detectMultiScale(raw_img)
     for (x,y,w,h) in eye_rects:
         cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),10)
     return 
