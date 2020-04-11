@@ -17,13 +17,13 @@ def read_webcam():
         # print("Converted to NP array")
         img = cv2.imdecode(imgNp, -1)
         # print("Decoded using imdecode")
-        cv2.resize(img,(600,400)) #resize the image
+        # cv2.resize(img,(600,400)) #resize the image
         return img
         # return the image
     except Exception as e:
         print("Exception occured ..",e)
         print("Are you sure IP webcam app is running in your phone")
-        return None
+        exit()
 
 
 read_webcam()

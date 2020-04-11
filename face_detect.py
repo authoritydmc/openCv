@@ -11,7 +11,7 @@ def detect_face(img):
     for (x,y,w,h) in face_rects:
         cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),10)
     return 
-
+    
 
 while True:
     ret,fr=cap.read()

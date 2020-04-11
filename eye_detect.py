@@ -1,5 +1,6 @@
 import cv2
 import datetime
+
 cap=cv2.VideoCapture(0)
 wid=int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 height=int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -11,7 +12,6 @@ def detect_eye(img):
     for (x,y,w,h) in eye_rects:
         cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),10)
     return 
-
 
 while True:
     ret,fr=cap.read()

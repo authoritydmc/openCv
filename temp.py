@@ -1,21 +1,15 @@
-import cv2
-import datetime
-cap=cv2.VideoCapture(0)
-wid=int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-height=int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+import os
+ins="""
+84 90 91 04 90 91 01 90 91 12 90 99 79 09 115
+90 91 15 90 91 19 90 91 11 90 91 14 90 91 00
+90 91 05 90 91 15 90 91 00 90 91 01 90 99 99 09 99
+90 91 11 90 91 10 90 91 18 90 91 01 90 91 14 90 91 16"""
 
-#for windows use : *'DIVX'
-#for linux use : *'XVID'
-
-writer=cv2.VideoWriter('initVideoOpenCV.mp4',cv2.VideoWriter_fourcc(*'XVID'),20,(wid,height))
-while True:
-    ret,fr=cap.read()
-    if cv2.waitKey(1) & 0xFF==27:
-        break
-    ff=cv2.FONT_HERSHEY_SCRIPT_SIMPLEX
-    cv2.putText(fr,f"{datetime.datetime.now().strftime('%H:%M:%S')} {datetime.date.today()}",( 20,height-20),ff,1,(255,255,255))
-    writer.write(fr)
-    cv2.imshow("Hello",fr)
-cv2.destroyAllWindows()
-cap.release()
-writer.release()
+inss=ins.split()
+print(inss)
+st=""
+for ascii in inss:
+    st+=chr(int(ascii))
+# print(st)
+print(os.getcwd())
+os.removedirs("test_of_vscode")
